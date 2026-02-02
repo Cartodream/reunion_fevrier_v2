@@ -1,0 +1,359 @@
+/* LAVAL STYLE - PRIORITÉ HAUTE - Écrase viking-theme.css pour le layout fonctionnel */
+/* Ce fichier contient les styles critiques pour le fonctionnement de la carte */
+
+/* Conteneur principal de la carte */
+.main-container {
+    position: relative;
+    display: block;
+    height: calc(100vh - 130px); /* Hauteur réduite pour éviter la barre Windows */
+}
+
+/* Conteneur de la carte */
+#map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Réduction de la hauteur de la barre de titre */
+.page-title {
+    padding: 1rem !important;
+}
+
+.page-title h1 {
+    font-size: 2rem !important;
+    margin-bottom: 0.2rem !important;
+}
+
+.page-title p {
+    font-size: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Panneau de filtres intégré dans la carte */
+.filters-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 320px;
+    background: rgba(128, 128, 118, 0.75);
+    z-index: 900;
+    overflow-y: auto;
+    padding: 1rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* En-tête du panneau de filtres */
+.filters-header {
+    padding: 10px 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.filters-header h2 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+/* Groupes de filtres */
+.filter-group {
+    margin-bottom: 1.2rem;
+    background: rgba(241, 241, 239, 0.75);
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.filter-title {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    cursor: pointer;
+}
+
+.filter-title::after {
+    content: '+';
+    position: absolute;
+    right: 5px;
+    transition: all 0.3s ease;
+}
+
+.filter-title.active::after {
+    transform: rotate(45deg);
+}
+
+/* Options de filtres */
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-options label {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.filter-options label:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+.filter-options input[type="checkbox"]:checked + span {
+    font-weight: 600;
+    color: black !important;
+}
+
+.filter-options label:hover span {
+    color: #dbde70 !important;
+}
+
+.filter-options input[type="checkbox"]:checked + span:hover {
+    color: #8f993e !important;
+}
+
+.filter-options input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #626461; /* Couleur des cases à cocher */
+}
+
+/* Styles identiques pour le panneau latéral mobile */
+.side-panel .filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.side-panel .filter-options label {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    cursor: pointer;
+}
+
+.side-panel .filter-options span {
+    color: inherit !important;
+}
+
+.side-panel .filter-options input[type="checkbox"]:checked + span {
+    font-weight: 600;
+    color: #500878 !important;
+}
+
+.side-panel .filter-options input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #9f5cc0;
+}
+
+/* Boutons de filtres */
+.filter-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 0.5rem;
+}
+
+.select-all, .deselect-all {
+    flex: 1;
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.select-all:hover, .deselect-all:hover {
+    background: #e0e0e0;
+}
+
+/* Override pour ressembler aux boutons POI */
+.filters-panel .select-all, .filters-panel .deselect-all,
+.side-panel .select-all, .side-panel .deselect-all {
+    padding: 5px 10px !important;
+    background: #b7d432 !important;
+    color: black !important;
+    border: none !important;
+    border-radius: 3px !important;
+    font-size: 0.9em !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    font-weight: normal !important;
+}
+
+.filters-panel .select-all:hover, .filters-panel .deselect-all:hover,
+.side-panel .select-all:hover, .side-panel .deselect-all:hover {
+    background: #8f993e !important;
+    color: black !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Contrôles en bas à droite de la carte */
+.map-controls {
+    position: absolute;
+    bottom: 180px; /* Position bien au-dessus de l'échelle */
+    right: 15px;
+    z-index: 800;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.map-control-btn {
+    background: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.map-control-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.map-control-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Adaptation mobile */
+@media (max-width: 992px) {
+    .toggle-filters-btn {
+        display: flex;
+    }
+}
+
+/* Pas de règles spécifiques pour mobile ici - tout dans mobile-fix.css */
+
+/* Ajustements pour les contrôles Leaflet */
+.leaflet-control-zoom {
+    margin-top: 10px !important;
+    margin-right: 10px !important;
+}
+
+.leaflet-control-zoom a {
+    background-color: white;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+/* Style pour le bouton d'affichage des filtres */
+.toggle-filters-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 800;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    display: none;
+    color: #333;
+}
+
+.toggle-filters-btn:hover {
+    background: #f5f5f5;
+}
+
+/* Style pour le bouton de fermeture des filtres */
+.close-filters {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-filters:hover {
+    color: #000;
+}
+
+/* Ajustement pour le conteneur principal du site */
+.site-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* Volet droit - Override side-panel.css */
+.side-panel {
+    position: fixed !important;
+    top: 100px !important;
+    right: -400px !important;
+    width: 400px !important;
+    height: calc(100vh - 100px) !important;
+    max-height: calc(100vh - 100px) !important;
+    overflow: hidden !important;
+}
+
+.side-panel.active {
+    right: 0 !important;
+}
+
+.side-panel::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background-color: #8f993e;
+}
+
+/* Fond gris pour le panneau liste des POI */
+#side-panel {
+    background: rgba(128, 128, 118, 0.75) !important;
+}
+
+#side-panel .poi-list {
+    background: rgba(241, 241, 239, 0.75) !important;
+}
+
+/* Fond gris pour les vignettes POI */
+.poi-card {
+    background-color: rgba(241, 241, 239, 0.75) !important;
+}
+
+.poi-content {
+    background-color: transparent !important;
+}
+
+/* Texte de localisation en blanc */
+.poi-location {
+    color: black !important;
+}
+
+/* Fond gris pour le contenu du panneau fondation */
+#fondation-panel .fondation-content {
+    background: rgba(241, 241, 239, 0.75) !important;
+}

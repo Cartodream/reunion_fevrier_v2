@@ -1,0 +1,29 @@
+.language-selector {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    display: flex;
+    gap: 5px;
+}
+
+.language-btn {
+    background: rgba(255,255,255,0.8);
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.language-btn.active {
+    background: var(--viking-accent-color, #8b4513);
+    color: white;
+    border-color: var(--viking-accent-color, #8b4513);
+}

@@ -1,0 +1,690 @@
+/* Modern Design - Main Styles */
+:root {
+  --primary: #3498db;
+  --secondary: #2ecc71;
+  --dark: #2c3e50;
+  --light: #ecf0f1;
+  --accent: #e74c3c;
+  --text: #34495e;
+  --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background-color: var(--light);
+}
+
+.site-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header & Title */
+.page-title {
+  background: var(--gradient);
+  padding: 3rem 1rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.page-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+  background-size: 100% 100%;
+}
+
+.page-title h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  position: relative;
+}
+
+.page-title p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  position: relative;
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  flex: 1;
+  position: relative;
+  background: var(--light);
+}
+
+/* Filters Panel */
+.filters-panel {
+  width: 320px;
+  background: white;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  overflow-y: auto;
+  z-index: 900;
+  transition: var(--transition);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.filters-panel .logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.filters-panel .logo {
+  height: 80px;
+  width: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.filters-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark);
+  position: relative;
+}
+
+.filters-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+.close-filters {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--dark);
+  transition: var(--transition);
+  display: none; /* Masqué par défaut sur desktop */
+}
+
+.close-filters:hover {
+  color: var(--accent);
+}
+
+.filter-group {
+  margin-bottom: 1.5rem;
+  background: rgba(236, 240, 241, 0.5);
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+
+.filter-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  cursor: pointer;
+  position: relative;
+  color: var(--dark);
+  transition: var(--transition);
+}
+
+.filter-title::after {
+  content: '+';
+  position: absolute;
+  right: 5px;
+  transition: var(--transition);
+}
+
+.filter-title.active::after {
+  transform: rotate(45deg);
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.filter-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 0.3rem 0;
+}
+
+.filter-options label:hover {
+  color: var(--primary);
+}
+
+.filter-options input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--primary);
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  gap: 0.8rem;
+}
+
+.select-all, .deselect-all {
+  flex: 1;
+  padding: 0.8rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.select-all:hover, .deselect-all:hover {
+  background: var(--dark);
+  transform: translateY(-2px);
+}
+
+/* Map Container */
+#map-container {
+  flex: 1;
+  position: relative;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  min-height: 600px;
+  z-index: 1;
+}
+
+.toggle-filters-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 800;
+  background: white;
+  border: none;
+  box-shadow: var(--shadow);
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  display: none; /* Masqué par défaut sur desktop */
+  transition: var(--transition);
+  color: var(--dark);
+}
+
+.toggle-filters-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--dark);
+  color: white;
+  padding: 3rem 2rem 1.5rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+.footer-logo img {
+  height: 60px;
+  width: auto;
+  border-radius: var(--radius);
+}
+
+.footer-contact h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.footer-contact h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--primary);
+}
+
+.footer-contact p {
+  margin-bottom: 0.8rem;
+}
+
+.footer-link {
+  display: block;
+  margin-bottom: 0.6rem;
+  transition: var(--transition);
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.footer-link::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  transition: var(--transition);
+}
+
+.footer-link:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.footer-link:hover::before {
+  color: var(--primary);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.social-icon:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-legal a {
+  transition: var(--transition);
+}
+
+.footer-legal a:hover {
+  color: var(--primary);
+}
+
+/* Leaflet Custom Styles */
+.leaflet-popup {
+  min-width: 350px;
+  max-width: 90vw;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  min-width: 350px;
+  max-width: 500px;
+  position: relative;
+  width: auto !important;
+}
+
+.leaflet-popup-content h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 1rem;
+  color: white;
+  background: var(--gradient);
+  text-align: center;
+}
+
+.popup-container {
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+}
+
+.popup-text {
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.popup-image {
+  width: 150px;
+  flex-shrink: 0;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-image img {
+  max-width: 100%;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.popup-image img:hover {
+  transform: scale(1.05);
+}
+
+.popup-links {
+  margin-top: 0;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding: 1rem;
+  background: rgba(236, 240, 241, 0.5);
+}
+
+.leaflet-popup-content p {
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+}
+
+.leaflet-popup-content a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.leaflet-popup-content a:hover {
+  color: var(--dark);
+}
+
+/* Image Modal */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  max-width: 80%;
+  max-height: 80%;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius);
+  object-fit: contain;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 10000;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+}
+
+.close-modal:hover {
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+/* Slideshow Controls */
+.slideshow-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: white;
+  border-radius: 0 0 var(--radius) var(--radius);
+  backdrop-filter: blur(5px);
+}
+
+.prev-slide, .next-slide {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+}
+
+.prev-slide:hover, .next-slide:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+}
+
+.slide-counter {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Marker Clusters */
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background-color: rgba(52, 152, 219, 0.6);
+}
+
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+  background-color: rgba(52, 152, 219, 0.8);
+}
+
+.marker-cluster {
+  background-clip: padding-box;
+  border-radius: 20px;
+}
+
+.marker-cluster div {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+}
+
+.marker-cluster span {
+  line-height: 30px;
+}
+
+/* Media Queries */
+@media (min-width: 993px) {
+  .filters-panel {
+    /* Toujours visible sur desktop */
+    position: relative;
+    transform: translateX(0);
+  }
+  
+  .close-filters {
+    display: none;
+  }
+  
+  .toggle-filters-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .filters-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    border-radius: 0;
+  }
+  
+  .filters-panel.active {
+    transform: translateX(0);
+  }
+  
+  .close-filters {
+    display: block;
+  }
+  
+  .toggle-filters-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title h1 {
+    font-size: 2rem;
+  }
+  
+  .page-title p {
+    font-size: 1rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .footer-legal {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .leaflet-popup {
+    min-width: 280px;
+    max-width: 95vw;
+  }
+  
+  .leaflet-popup-content {
+    min-width: 250px;
+  }
+  
+  .popup-container {
+    flex-direction: column;
+  }
+  
+  .popup-text {
+    padding-right: 0;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .leaflet-popup {
+    min-width: 220px;
+    max-width: 98vw;
+  }
+  
+  .leaflet-popup-content {
+    min-width: 200px;
+  }
+  
+  .popup-image {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}

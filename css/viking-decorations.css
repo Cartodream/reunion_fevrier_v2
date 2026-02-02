@@ -1,0 +1,260 @@
+/* Décorations Viking */
+
+/* Éléments décoratifs pour le thème viking */
+.viking-border {
+  position: relative;
+}
+
+
+
+/* Bouclier viking pour les titres */
+.viking-shield {
+  position: relative;
+  display: inline-block;
+  padding: 0 40px;
+}
+
+.viking-shield::before,
+.viking-shield::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 2 L28 8 L28 15 C28 22 22 28 15 28 C8 28 2 22 2 15 L2 8 Z' stroke='%238B4513' fill='%23CD853F' stroke-width='2'/%3E%3Cpath d='M15 5 L15 25 M7 10 L23 10 M7 20 L23 20' stroke='%238B4513' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.viking-shield::before {
+  left: 0;
+}
+
+.viking-shield::after {
+  right: 0;
+}
+
+/* Hache viking pour les listes */
+.viking-list {
+  list-style: none;
+  padding-left: 25px;
+}
+
+.viking-list li {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.viking-list li::before {
+  content: '';
+  position: absolute;
+  left: -25px;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 2 L18 10 L10 18 L2 10 Z' stroke='%238B4513' fill='%23CD853F' stroke-width='1'/%3E%3Cpath d='M10 2 L10 18' stroke='%238B4513' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
+
+/* Bouton style viking */
+.viking-button {
+  background: #8B4513;
+  color: #F5F5DC;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  border: 2px solid #CD853F;
+  overflow: hidden;
+}
+
+.viking-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transition: all 0.5s ease;
+}
+
+.viking-button:hover::before {
+  left: 100%;
+}
+
+.viking-button:hover {
+  background: #2C1B0E;
+  transform: translateY(-2px);
+}
+
+/* Séparateur viking */
+.viking-divider {
+  height: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 15 L20 5 L40 15 L60 5 L80 15 L100 5' stroke='%238B4513' fill='none' stroke-width='2'/%3E%3Cpath d='M0 25 L20 15 L40 25 L60 15 L80 25 L100 15' stroke='%238B4513' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 100px 30px;
+  margin: 20px 0;
+}
+
+/* Cadre viking pour les images */
+.viking-frame {
+  border: 5px solid #8B4513;
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+  background: #F5F5DC;
+}
+
+.viking-frame::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  width: 10px;
+  height: 10px;
+  background: #CD853F;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #8B4513;
+}
+
+.viking-frame::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  background: #CD853F;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #8B4513;
+}
+
+/* Titre avec ornements viking */
+.viking-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  padding: 15px 0;
+}
+
+.viking-title::before,
+.viking-title::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background: #8B4513;
+  width: 30%;
+  top: 50%;
+}
+
+.viking-title::before {
+  left: 0;
+}
+
+.viking-title::after {
+  right: 0;
+}
+
+/* Fond parchemin viking */
+.viking-parchment {
+  background-color: #F5F5DC;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 L100,100 M100,0 L0,100' stroke='%23D2B48C' stroke-width='1' opacity='0.2'/%3E%3C/svg%3E");
+  border: 3px solid #8B4513;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.viking-parchment::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 1px solid rgba(139, 69, 19, 0.3);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+/* Icônes vikings pour les points d'intérêt */
+.viking-poi-icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.viking-poi-icon.nature {
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 5 L25 20 L20 20 L25 30 L5 30 L10 20 L5 20 Z' stroke='%238B4513' fill='%23CD853F' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.viking-poi-icon.monument {
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 30 L25 30 L25 15 L15 5 L5 15 Z' stroke='%238B4513' fill='%23CD853F' stroke-width='1'/%3E%3Cpath d='M10 30 L10 15 M15 30 L15 10 M20 30 L20 15' stroke='%238B4513' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.viking-poi-icon.curiosity {
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='10' stroke='%238B4513' fill='%23CD853F' stroke-width='1'/%3E%3Cpath d='M15 10 L15 16 L20 20' stroke='%238B4513' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+/* Animation de vague viking pour les boutons */
+@keyframes viking-wave {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 0;
+  }
+}
+
+.viking-wave-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.viking-wave-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 2.5 L10 0 L20 5 L30 0 L40 5 L50 0 L60 5 L70 0 L80 5 L90 0 L100 5' stroke='%23CD853F' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 100px 5px;
+  animation: viking-wave 2s linear infinite;
+}
+
+/* Effet de runes vikings pour les éléments interactifs */
+.viking-runes::before {
+  content: 'ᚠᚢᚦᚨᚱᚲ';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #8B4513;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.viking-runes:hover::before {
+  opacity: 1;
+  bottom: -20px;
+}

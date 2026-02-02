@@ -1,0 +1,121 @@
+/* CORRECTION CALENDRIER - PRIORITÉ ABSOLUE */
+
+/* Forcer les boutons de navigation à être cliquables */
+.calendar-nav {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    z-index: 9999 !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #b7d432 !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 30px !important;
+    height: 30px !important;
+    color: black !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+}
+
+.calendar-nav:hover {
+    background: #8f993e !important;
+    transform: none !important;
+}
+
+/* Forcer les jours à être cliquables */
+.calendar-day {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    z-index: 9999 !important;
+    position: relative !important;
+    user-select: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 30px !important;
+    font-size: 12px !important;
+    aspect-ratio: 1 !important;
+}
+
+.calendar-day:hover {
+    background: rgba(0, 0, 0, 0.1) !important;
+    transform: none !important;
+}
+
+/* Forcer les boutons recherche/effacer à être cliquables */
+.calendar-search-btn,
+.calendar-clear-btn {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    z-index: 9999 !important;
+    position: relative !important;
+}
+
+/* Forcer le calendrier à être visible et interactif */
+.calendar-widget {
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+    position: relative !important;
+}
+
+.calendar-header {
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+    position: relative !important;
+}
+
+.calendar-days {
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: repeat(7, 1fr) !important;
+    gap: 2px !important;
+    min-height: 200px !important;
+}
+
+.calendar-weekdays {
+    display: grid !important;
+    grid-template-columns: repeat(7, 1fr) !important;
+    gap: 2px !important;
+    margin-bottom: 5px !important;
+}
+
+/* Override des règles viking-theme qui interfèrent */
+.filter-options label {
+    transform: none !important;
+}
+
+.filter-options label:hover {
+    transform: none !important;
+}
+
+/* Override mobile-fix pour le calendrier */
+.calendar-widget .filter-title {
+    pointer-events: auto !important;
+}
+
+/* Forcer tous les éléments du calendrier */
+.calendar-widget * {
+    pointer-events: auto !important;
+}
+
+/* Styles visuels pour les dates sélectionnées */
+.calendar-day.range-start,
+.calendar-day.range-end {
+    background: #500878 !important;
+    color: white !important;
+}
+
+.calendar-day.in-range {
+    background: #9f5cc0 !important;
+    color: white !important;
+}
+
+.calendar-day.has-event {
+    background: #333 !important;
+    color: white !important;
+    font-weight: bold !important;
+}

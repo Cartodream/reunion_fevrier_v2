@@ -1,0 +1,224 @@
+@media (max-width: 1024px) {
+  .filters-panel {
+    display: none !important;
+  }
+  
+  .toggle-filters-btn {
+    display: none !important;
+  }
+  
+  .mobile-explorer-btn {
+    display: flex !important;
+  }
+  
+  .side-panel {
+    max-width: 100vw !important;
+    width: 100vw !important;
+  }
+  
+  .poi-list, .explorer-content {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  /* Adaptation du titre pour mobile */
+  .page-title h1 {
+    font-size: 1.2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* S'assurer que tous les panneaux latéraux restent fermés par défaut */
+  #fondation-panel:not(.active),
+  #side-panel:not(.active),
+  #explorer-panel:not(.active) {
+    right: -100vw !important;
+  }
+  
+  /* Forcer toutes les catégories à rester ouvertes dans l'explorer mobile */
+  #explorer-panel .filter-options {
+    display: block !important;
+  }
+  
+  #explorer-panel .filter-title {
+    pointer-events: none;
+  }
+  
+  /* Supprimer la couleur jaune résiduelle sur mobile - TOUS les panneaux */
+  .side-panel span {
+    color: #333 !important;
+  }
+  
+  .side-panel input[type="checkbox"]:checked + span {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  
+  .side-panel label span {
+    color: #333 !important;
+  }
+  
+  .side-panel label input[type="checkbox"]:checked + span {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Override viking-theme hover effects */
+  .side-panel .filter-options label:hover {
+    color: #333 !important;
+    transform: none !important;
+  }
+  
+  .side-panel .filter-options label:hover span {
+    color: #333 !important;
+  }
+  
+  .side-panel .filter-options label input[type="checkbox"]:checked + span:hover {
+    color: black !important;
+  }
+  
+  /* Règle universelle pour tous les spans - RESET COMPLET */
+  #explorer-panel * {
+    color: inherit !important;
+  }
+  
+  #explorer-panel span {
+    color: #333 !important;
+    font-weight: normal !important;
+  }
+  
+  /* Règle pour les éléments cochés - PRIORITÉ MAXIMALE */
+  #explorer-panel input[type="checkbox"]:checked + span,
+  #explorer-panel .filter-group input[type="checkbox"]:checked + span,
+  #explorer-panel .filter-options input[type="checkbox"]:checked + span,
+  #explorer-panel label input[type="checkbox"]:checked + span {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  
+  /* FORCE BRUTALE - Override TOUT */
+  #explorer-panel span[data-category],
+  #explorer-panel span:not([data-category]) {
+    color: #333 !important;
+    font-weight: normal !important;
+  }
+  
+  #explorer-panel input:checked + span[data-category],
+  #explorer-panel input:checked + span:not([data-category]) {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Couleur des cases à cocher */
+  .side-panel input[type="checkbox"],
+  #explorer-panel input[type="checkbox"] {
+    accent-color: #626461 !important;
+  }
+}
+
+/* Tablettes - Largeur limitée pour les panneaux */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .side-panel {
+    max-width: 60vw !important;
+    width: 60vw !important;
+  }
+  
+  #fondation-panel:not(.active),
+  #side-panel:not(.active),
+  #explorer-panel:not(.active) {
+    right: -60vw !important;
+  }
+  
+  .page-title h1 {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Téléphones portrait */
+@media (max-width: 767px) {
+  .page-title h1 {
+    font-size: 1rem !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* Téléphones en mode paysage */
+@media (max-width: 767px) and (orientation: landscape) {
+  .page-title {
+    padding: 0.5rem !important;
+    height: 50px !important;
+  }
+  
+  .page-title h1 {
+    font-size: 1.5rem !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .main-container {
+    height: calc(100vh - 50px) !important;
+  }
+  
+  .side-panel {
+    top: 50px !important;
+    height: calc(100vh - 50px) !important;
+    max-width: 70vw !important;
+    width: 70vw !important;
+  }
+  
+  #fondation-panel:not(.active),
+  #side-panel:not(.active),
+  #explorer-panel:not(.active) {
+    right: -70vw !important;
+  }
+  
+  /* Fond blanc pour les groupes de filtres */
+  .side-panel .filter-group {
+    background: #fff !important;
+  }
+  
+  .map-controls {
+    bottom: 40px !important;
+    left: 10px !important;
+    right: auto !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    align-items: flex-end !important;
+  }
+  
+  .map-control-btn {
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .fondation-logo {
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+  }
+  
+  .fondation-logo img {
+    width: 32px !important;
+    height: 32px !important;
+    object-fit: cover !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .mobile-explorer-btn {
+    display: none !important;
+  }
+  
+  #explorer-panel {
+    display: none !important;
+  }
+}

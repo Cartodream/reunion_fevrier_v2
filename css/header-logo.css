@@ -1,0 +1,34 @@
+/* Logo dans la barre de titre - Desktop uniquement */
+.header-logo {
+    height: 60px;
+    width: auto;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.page-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Logo tablette */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .header-logo {
+        content: url('../image/logo-office-de-tourisme2.jpg');
+    }
+}
+
+/* Masquer le logo sur mobile */
+@media (max-width: 768px) {
+    .header-logo {
+        display: none;
+    }
+    
+    .page-title {
+        justify-content: center;
+    }
+}

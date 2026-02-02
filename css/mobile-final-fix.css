@@ -1,0 +1,50 @@
+/* MOBILE FINAL FIX - Chargé en dernier pour override TOUT */
+
+@media (max-width: 1024px) {
+  /* Override ABSOLU pour tous les spans du panneau mobile */
+  #explorer-panel span {
+    color: #333 !important;
+    font-weight: normal !important;
+  }
+  
+  #explorer-panel input[type="checkbox"]:checked + span {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Cibler spécifiquement chaque panneau */
+  #explorer-panel .filter-group:nth-child(1) span,
+  #explorer-panel .filter-group:nth-child(2) span,
+  #explorer-panel .filter-group:nth-child(3) span,
+  #explorer-panel .filter-group:nth-child(4) span {
+    color: #333 !important;
+    font-weight: normal !important;
+  }
+  
+  #explorer-panel .filter-group:nth-child(1) input[type="checkbox"]:checked + span,
+  #explorer-panel .filter-group:nth-child(2) input[type="checkbox"]:checked + span,
+  #explorer-panel .filter-group:nth-child(3) input[type="checkbox"]:checked + span,
+  #explorer-panel .filter-group:nth-child(4) input[type="checkbox"]:checked + span {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Fond gris pour les groupes de filtres */
+  #explorer-panel .filter-group {
+    background: rgba(128, 128, 118, 0.75) !important;
+  }
+  
+  /* Fond gris pour tout le panneau mobile */
+  #explorer-panel {
+    background: rgba(128, 128, 118, 0.75) !important;
+  }
+  
+  #explorer-panel .explorer-content {
+    background: rgba(128, 128, 118, 0.75) !important;
+  }
+  
+  /* Fond gris pour la liste POI du panneau fondation */
+  .fondation-poi-list {
+    background: rgba(128, 128, 118, 0.75) !important;
+  }
+}

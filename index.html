@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte Interactive - OTPH</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Google Fonts - Police Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS OPTIMISÉ - ARCHITECTURE STABLE -->
+    <!-- 1. Thème décoratif (styles layout désactivés) -->
+    <link rel="stylesheet" href="css/viking-theme.css">
+    <link rel="stylesheet" href="css/viking-decorations.css">
+    <link rel="stylesheet" href="css/combined-lightbox.css">
+    <!-- 2. Layout fonctionnel (PRIORITÉ HAUTE) -->
+    <link rel="stylesheet" href="css/laval-style.css">
+    <!-- 3. Composants (chargement direct optimisé) -->
+    <link rel="stylesheet" href="css/side-panel.css">
+    <link rel="stylesheet" href="css/mobile-fix.css">
+    <link rel="stylesheet" href="css/map-controls.css">
+    <link rel="stylesheet" href="css/popup-effects.css">
+    <!-- 4. Override Montserrat (PRIORITÉ MAXIMALE) -->
+    <link rel="stylesheet" href="css/montserrat-override.css">
+    <!-- Correction Font Awesome -->
+    <link rel="stylesheet" href="css/fontawesome-fix.css">
+    <!-- Logo header -->
+    <link rel="stylesheet" href="css/header-logo.css">
+    <!-- Amélioration images POI -->
+    <link rel="stylesheet" href="css/poi-images-fix.css">
+    <!-- Fix final mobile (PRIORITÉ ABSOLUE) -->
+    <link rel="stylesheet" href="css/mobile-final-fix.css">
+    <!-- Calendar widget -->
+    <link rel="stylesheet" href="css/calendar-widget.css">
+    <!-- Calendar fix - PRIORITÉ MAXIMALE -->
+    <link rel="stylesheet" href="css/calendar-fix.css">
+    <!-- Popup custom -->
+    <link rel="stylesheet" href="css/popup.css">
+    
+    <!-- Scripts critiques -->
+    <script src="script/force-default-filters.js"></script>
+    <script src="script/mobile-fix.js"></script>
+    <!-- Données événements -->
+    <script src="donnees/event.js"></script>
+</head>
+<body>
+
+
+    <div class="site-container">
+
+        <!-- Titre de la page -->
+        <div class="page-title viking-border">
+            <img src="image/logo-office-de-tourisme3.jpg" alt="Office de Tourisme" class="header-logo">
+            <h1>Le Patrimoine du Pays Houdanais en ligne</h1>
+        </div>
+
+        <!-- Conteneur principal -->
+        <div class="main-container">
+            <!-- Carte -->
+            <div id="map-container">
+                <div id="map"></div>
+                
+                <!-- Filtres intégrés dans la carte -->
+                <div class="filters-panel">
+                    <!-- Bouton fermeture fixe mobile -->
+                    <button class="mobile-close-filters" style="display: none;">×</button>
+                    
+                    <div class="filters-header">
+                        <h2>Explorer</h2>
+                        <button class="close-filters"><i class="fas fa-times"></i></button>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h3 class="filter-title active">Patrimoine Architectural</h3>
+                        <div class="filter-options" style="display: block;">
+                            <label><input type="checkbox" data-category="patrimoine_architectural" data-subcategory="patrimoine_bâti_monumental" checked><span> Châteaux, Manoirs...</span></label>
+                            <label><input type="checkbox" data-category="patrimoine_architectural" data-subcategory="patrimoine_religieux" checked><span> Eglises, Chapelles...</span></label>
+                            <label><input type="checkbox" data-category="patrimoine_architectural" data-subcategory="bâti_traditionnel" checked><span> Maisons, Moulins, Lavoirs...</span></label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h3 class="filter-title">Patrimoine Naturel</h3>
+                        <div class="filter-options" style="display: none;">
+                            <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="etangs_et_rivières"><span> Etangs et Rivières</span></label>
+                            <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="effraie"><span> Effraie</span></label>
+                            <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="chevêche"><span> Chevêche</span></label>
+                            <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="flore"><span> Flore</span></label>                    
+                            <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="rapace"><span> Rapace</span></label>
+                            <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="heron"><span> Héron</span></label>
+                            <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="forêts_et_parcs"><span> Forêts et Parcs</span></label>
+                            <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="chauve_souris"><span> Chauve Souris</span></label>
+                            <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="cervidés"><span> Cervidés</span></label>
+                            <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="hirondelle"><span> Hirondelle</span></label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h3 class="filter-title">Patrimoine Mémoriel</h3>
+                        <div class="filter-options" style="display: none;">
+                            <label><input type="checkbox" data-category="patrimoine_memoriel" data-subcategory="personnages_célèbres"><span> Personnages célèbres</span></label>
+                            <label><input type="checkbox" data-category="patrimoine_memoriel" data-subcategory="musées"><span> Musées</span></label>
+                            <label><input type="checkbox" data-category="patrimoine_memoriel" data-subcategory="lieux_de_mémoire"><span> Lieux de Mémoire</span></label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h3 class="filter-title">Autres Points</h3>
+                        <div class="filter-options" style="display: none;">
+                            <label><input type="checkbox" data-category="autres_points" data-subcategory="curiosité"><span> Curiosité</span></label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h3 class="filter-title active">Événements</h3>
+                        <div class="filter-options" style="display: block;">
+                            <div class="calendar-widget">
+                                <div class="calendar-header">
+                                    <button onclick="prevMonth()" style="background: #b7d432; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-weight: bold;">‹</button>
+                                    <div id="month-year">janvier 2025</div>
+                                    <button onclick="nextMonth()" style="background: #b7d432; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-weight: bold;">›</button>
+                                </div>
+                                <div class="calendar-weekdays">
+                                    <div class="calendar-weekday">lun.</div>
+                                    <div class="calendar-weekday">mar.</div>
+                                    <div class="calendar-weekday">mer.</div>
+                                    <div class="calendar-weekday">jeu.</div>
+                                    <div class="calendar-weekday">ven.</div>
+                                    <div class="calendar-weekday">sam.</div>
+                                    <div class="calendar-weekday">dim.</div>
+                                </div>
+                                <div class="calendar-days" id="calendar-days"></div>
+                                <label style="display: flex; align-items: center; margin: 10px 0; font-size: 12px; color: #333;"><input type="checkbox" id="apply-filter-main" style="margin-right: 8px;"><span>Appliquer le filtre à la recherche</span></label>
+                                <button onclick="searchEvents()" class="calendar-search-btn">Rechercher sur une période</button>
+                                <button onclick="clearEvents()" class="calendar-clear-btn">Effacer</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button class="select-all">Tout sélectionner</button>
+                        <button class="deselect-all">Tout désélectionner</button>
+                    </div>
+                </div>
+                
+                <!-- Bouton pour afficher les filtres (mobile) -->
+                <button class="toggle-filters-btn">
+                    <i class="fas fa-compass"></i> Explorer
+                </button>
+                
+                <!-- Contrôles en bas à droite de la carte -->
+                <div class="map-controls">
+                    <button class="map-control-btn mobile-explorer-btn" title="Explorer" id="toggle-explorer-btn">
+                        <i class="fas fa-compass"></i>
+                    </button>
+                    <button class="map-control-btn" title="Liste" id="toggle-list-btn">
+                        <i class="fas fa-list"></i>
+                    </button>
+                    <!-- <button class="fondation-logo" id="toggle-fondation-btn" title="Fondation">
+                        <img src="image/fondation.jpg" alt="Fondation">
+                    </button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Panneau latéral pour l'explorer -->
+    <div class="side-panel" id="explorer-panel">
+        <div class="side-panel-header">
+            <h2>Explorer</h2>
+            <button class="close-explorer-panel"></button>
+        </div>
+        <div class="explorer-content">
+            <div class="filter-group">
+                <h3 class="filter-title active">Patrimoine Architectural</h3>
+                <div class="filter-options" style="display: block;">
+                    <label><input type="checkbox" data-category="patrimoine_architectural" data-subcategory="patrimoine_bâti_monumental" checked><span> Châteaux, Manoirs...</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_architectural" data-subcategory="patrimoine_religieux" checked><span> Eglises, Chapelles...</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_architectural" data-subcategory="bâti_traditionnel" checked><span> Maisons, Moulins, Lavoirs...</span></label>
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <h3 class="filter-title">Patrimoine Naturel</h3>
+                <div class="filter-options" style="display: none;">
+                    <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="etangs_et_rivières"><span> Etangs et Rivières</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="effraie"><span> Effraie</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="chevêche"><span> Chevêche</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="flore"><span> Flore</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="rapace"><span> Rapace</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="heron"><span> Héron</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="forêts_et_parcs"><span> Forêts et Parcs</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="chauve_souris"><span> Chauve Souris</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="cervidés"><span> Cervidés</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_naturel" data-subcategory="hirondelle"><span> Hirondelle</span></label>
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <h3 class="filter-title">Patrimoine Mémoriel</h3>
+                <div class="filter-options" style="display: none;">
+                    <label><input type="checkbox" data-category="patrimoine_memoriel" data-subcategory="personnages_célèbres"><span> Personnages célèbres</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_memoriel" data-subcategory="musées"><span> Musées</span></label>
+                    <label><input type="checkbox" data-category="patrimoine_memoriel" data-subcategory="lieux_de_mémoire"><span> Lieux de Mémoire</span></label>
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <h3 class="filter-title">Autres Points</h3>
+                <div class="filter-options" style="display: none;">
+                    <label><input type="checkbox" data-category="autres_points" data-subcategory="curiosité"><span> Curiosité</span></label>
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <h3 class="filter-title active">Événements</h3>
+                <div class="filter-options" style="display: block;">
+                    <div class="calendar-widget">
+                        <div class="calendar-header">
+                            <button onclick="prevMonthSide()" class="calendar-nav" id="prev-month-side">‹</button>
+                            <div class="calendar-month-year" id="month-year-side">janvier 2026</div>
+                            <button onclick="nextMonthSide()" class="calendar-nav" id="next-month-side">›</button>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <div class="calendar-weekday">lun.</div>
+                            <div class="calendar-weekday">mar.</div>
+                            <div class="calendar-weekday">mer.</div>
+                            <div class="calendar-weekday">jeu.</div>
+                            <div class="calendar-weekday">ven.</div>
+                            <div class="calendar-weekday">sam.</div>
+                            <div class="calendar-weekday">dim.</div>
+                        </div>
+                        <div class="calendar-days" id="calendar-days-side"></div>
+                        <label style="display: flex; align-items: center; margin: 10px 0; font-size: 12px; color: #333;"><input type="checkbox" id="apply-filter-side" style="margin-right: 8px;"><span>Appliquer le filtre à la recherche</span></label>
+                        <button onclick="searchEventsSide()" class="calendar-search-btn" id="calendar-search-side">Rechercher sur une période</button>
+                        <button onclick="clearEventsSide()" class="calendar-clear-btn" id="calendar-clear-side">Effacer</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="select-all">Tout sélectionner</button>
+                <button class="deselect-all">Tout désélectionner</button>
+            </div>
+        </div>
+    </div>
+    
+    // Panneau latéral pour la liste des POIs -->
+    <div class="side-panel" id="side-panel">
+        <div class="side-panel-header">
+            <h2>Liste des points d'intérêt</h2>
+            <button class="close-side-panel"></button>
+        </div>
+        <div class="poi-list" id="poi-list">
+            <!-- Les POIs seront générés ici par JavaScript -->
+        </div>
+    </div>
+    
+    <!-- Panneau latéral pour la fondation -->
+    <!-- <div class="side-panel" id="fondation-panel">
+        <div class="side-panel-header">
+            <h2>Fondation du Patrimoine</h2>
+            <button class="close-fondation-panel"></button>
+        </div>
+        <div class="fondation-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="fondation-poi-list" id="fondation-poi-list">
+            <!-- Les POIs avec fondation_courant seront générés ici -->
+        </div>
+    </div> -->
+
+    <!-- Modal pour l'agrandissement des images -->
+    <div class="image-modal">
+        <span class="close-modal"><i class="fas fa-times"></i></span>
+        <div class="modal-content">
+            <img id="modal-img" src="" alt="Image agrandie">
+            <div class="slideshow-controls">
+                <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                <span class="slide-counter">1/2</span>
+                <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <div class="image-caption"></div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- MarkerCluster JS -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    
+    <!-- jQuery -->
+    <script src="script/jquery.js"></script>
+    
+    <!-- Fonctions partagées -->
+    <script src="script/shared-functions.js"></script>
+    
+    <!-- Données -->
+    <script src="donnees/POI.js"></script>
+    <script src="donnees/fond.js"></script>
+    <script src="donnees/rivieres.js"></script>
+    <script src="donnees/COMMUNE_0.js"></script>
+    <script src="donnees/COMMUNE_1.js"></script>
+    
+    <!-- Notre script personnalisé -->
+    <script src="script/optimized-markers.js"></script>
+    <script src="script/carte-interactive.js"></script>
+    
+    <!-- Script pour la lightbox et le diaporama -->
+    <script src="script/combined-lightbox.js"></script>
+    
+
+    
+    <!-- Script pour gérer le panneau latéral -->
+    <script src="script/side-panel.js"></script>
+    
+    <!-- Calendar widget -->
+    <script src="script/working-calendar.js"></script>
+
+</body>
+</html>

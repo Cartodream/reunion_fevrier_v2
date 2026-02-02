@@ -1,0 +1,90 @@
+/* MONTSERRAT OVERRIDE - Applique Montserrat sur tout le projet */
+
+* {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.page-title h1 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.filters-header h2 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.filter-title {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.side-panel-header h2 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.poi-title {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.leaflet-popup-content h3 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.footer-contact h3 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.slide-counter {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.toggle-filters-btn {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.select-all, .deselect-all {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Styles spécifiques pour le panneau Fondation */
+#fondation-panel * {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+#fondation-panel .poi-title {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+#fondation-panel .poi-category {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+#fondation-panel .poi-description {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+#fondation-panel .poi-location {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+#fondation-panel .poi-button {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+#fondation-panel .fondation-link a {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+#fondation-panel .fondation-content p {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+#fondation-panel .no-results {
+    font-family: 'Montserrat', sans-serif !important;
+}

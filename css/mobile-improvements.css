@@ -1,0 +1,105 @@
+/* Améliorations pour l'expérience mobile */
+
+/* Ajustements généraux */
+body {
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Amélioration des filtres sur mobile */
+@media (max-width: 992px) {
+    .filters-panel {
+        width: 85%;
+        max-width: 300px;
+        z-index: 1000;
+    }
+    
+    .filters-panel.active {
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Améliorations pour les petits écrans */
+@media (max-width: 768px) {
+    /* Amélioration des textes et éléments interactifs */
+    .filter-options label {
+        font-size: 16px;
+        padding: 8px 0;
+    }
+    
+    .filter-options input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* Amélioration des popups */
+    .leaflet-popup-content {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    .leaflet-popup-content h3 {
+        font-size: 18px;
+    }
+    
+    /* Amélioration du contrôle de recherche */
+    .leaflet-control-search .search-input {
+        width: 180px;
+        height: 36px;
+        font-size: 16px;
+        padding: 0 12px;
+    }
+    
+    .leaflet-control-search .search-button {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .leaflet-control-search .search-tip {
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    /* Amélioration des boutons */
+    .toggle-filters-btn {
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+    
+    .select-all, .deselect-all {
+        padding: 12px;
+        font-size: 16px;
+    }
+    
+    /* Amélioration des contrôles de la carte */
+    .leaflet-touch .leaflet-control-layers, 
+    .leaflet-touch .leaflet-bar {
+        border: 2px solid rgba(0,0,0,0.2);
+    }
+    
+    .leaflet-touch .leaflet-bar a {
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        font-size: 20px;
+    }
+}
+
+/* Améliorations spécifiques pour très petits écrans */
+@media (max-width: 480px) {
+    .leaflet-popup-content {
+        font-size: 16px;
+    }
+    
+    .leaflet-popup-content h3 {
+        font-size: 18px;
+    }
+    
+    .popup-image img {
+        max-height: 180px;
+    }
+    
+    /* Amélioration du contrôle de recherche */
+    .leaflet-control-search .search-input {
+        width: 160px;
+    }
+}

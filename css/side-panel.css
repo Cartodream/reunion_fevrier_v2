@@ -1,0 +1,141 @@
+.side-panel {
+    position: fixed;
+    top: 100px;
+    right: -400px;
+    width: 400px;
+    height: calc(100vh - 100px);
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-panel.active {
+    right: 0;
+}
+
+.side-panel-header {
+    padding: 15px;
+    background-color: #8f993e;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.side-panel-header h2 {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+}
+
+.close-side-panel, .close-fondation-panel, .close-explorer-panel {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-side-panel::before, .close-fondation-panel::before, .close-explorer-panel::before {
+    content: '×';
+    font-size: 24px;
+    line-height: 1;
+}
+
+.close-side-panel *, .close-fondation-panel *, .close-explorer-panel * {
+    display: none;
+}
+
+.poi-list, .fondation-poi-list, .explorer-content, .event-content {
+    padding: 15px;
+    background: rgba(128, 128, 118, 0.75) !important;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.fondation-poi-list {
+    background: rgba(128, 128, 118, 0.75) !important;
+}
+
+/* Fondation content - sticky sur desktop */
+.fondation-content {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    flex-shrink: 0;
+}
+
+.poi-card {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.poi-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.poi-image-placeholder {
+    width: 100%;
+    height: 150px;
+    background-color: #eee;
+}
+
+.poi-content {
+    padding: 15px;
+    background-color: transparent;
+}
+
+.poi-title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-family: 'Cinzel', serif;
+}
+
+.poi-category {
+    display: block;
+    color: black;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.poi-description {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.poi-location {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.poi-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #8f993e;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.poi-button:hover {
+    background-color: #6B8A52;
+}

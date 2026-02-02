@@ -1,0 +1,21 @@
+/* Correction pour le positionnement du panneau latéral */
+.side-panel {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    right: 10px !important;
+    width: 350px !important;  /* Réduit de 400px à 350px */
+    height: 60% !important;   /* Réduit de 70% à 60% */
+    z-index: 900 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    overflow-y: auto !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 5px !important;
+    margin-top: 40px !important;
+}
+
+
+/* Ajustement de la carte pour qu'elle occupe tout l'espace */
+#map-container {
+    width: 100% !important;
+}

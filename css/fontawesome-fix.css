@@ -1,0 +1,57 @@
+/* Correction des icônes Font Awesome qui s'affichent comme des carrés blancs */
+
+/* Forcer l'affichage correct des icônes Font Awesome */
+.fas, .far, .fab, .fal, .fad {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 6 Brands" !important;
+    font-weight: 900 !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Correction spécifique pour les icônes de localisation */
+.poi-location i {
+    display: inline-block !important;
+    width: auto !important;
+    height: auto !important;
+    background: none !important;
+    border: none !important;
+}
+
+/* Alternative : remplacer les icônes problématiques par du texte */
+.poi-location i.fa-map-marker-alt::before {
+    content: "📍" !important;
+    font-family: inherit !important;
+}
+
+.poi-location i.fa-location-dot::before {
+    content: "📍" !important;
+    font-family: inherit !important;
+}
+
+/* Correction pour les boutons de fermeture */
+.close-filters i.fa-times::before {
+    content: "×" !important;
+    font-family: inherit !important;
+    font-size: 1.2em !important;
+}
+
+/* Correction spécifique pour les panneaux latéraux */
+#side-panel .poi-location i::before,
+#fondation-panel .poi-location i::before {
+    content: "📍" !important;
+    font-family: inherit !important;
+    font-size: 1em !important;
+}
+
+/* S'assurer que les icônes de localisation sont visibles */
+.side-panel .poi-location i,
+#fondation-panel .poi-location i {
+    display: inline !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: inherit !important;
+}

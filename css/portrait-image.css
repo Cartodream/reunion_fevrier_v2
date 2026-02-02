@@ -1,0 +1,21 @@
+/**
+ * Styles spécifiques pour les images en format portrait
+ */
+
+/* Classe spéciale pour les images en format portrait */
+.portrait-image {
+    max-height: 85vh !important;
+    max-width: none !important;
+}
+
+/* Ajustements pour les contrôles sur les images portrait */
+.portrait-image + .image-controls {
+    bottom: 30px;
+}
+
+/* Ajustements responsives */
+@media (max-width: 768px) {
+    .portrait-image {
+        max-height: 80vh !important;
+    }
+}

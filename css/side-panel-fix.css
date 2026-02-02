@@ -1,0 +1,20 @@
+/* Correction pour le panneau latéral */
+
+/* Rendre l'en-tête du panneau latéral fixe */
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0 !important;
+}
+
+.side-panel-header {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.poi-list {
+    flex: 1;
+    overflow-y: auto;
+}

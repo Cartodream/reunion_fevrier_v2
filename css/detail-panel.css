@@ -1,0 +1,78 @@
+/* Styles pour l'affichage des détails dans le panneau latéral */
+.poi-detail {
+    padding: 15px;
+}
+
+.poi-detail-title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+}
+
+
+
+.poi-detail-image {
+    margin-bottom: 15px;
+}
+
+.poi-detail-image img {
+    width: auto;
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.poi-detail-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.poi-detail-info {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.poi-detail-info p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.poi-detail-info i {
+    width: 20px;
+    text-align: center;
+    margin-right: 5px;
+    color: #87A96B;
+}
+
+.detail-link {
+    color: #87A96B;
+    text-decoration: none;
+}
+
+.detail-link:hover {
+    text-decoration: underline;
+}
+
+.back-to-list-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.back-to-list-btn:hover {
+    background-color: #e0e0e0;
+}
+

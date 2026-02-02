@@ -1,0 +1,27 @@
+/* Effets pour les popups et icônes */
+
+/* Effet sur l'icône active */
+.marker-active {
+    filter: drop-shadow(0 0 8px #ff6b35) brightness(1.2);
+    z-index: 1000 !important;
+}
+
+/* Animation de l'icône au clic */
+.marker-clicked {
+    animation: markerPulse 0.3s ease-out;
+}
+
+@keyframes markerPulse {
+    0% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.2) translate(0, 0); }
+    100% { transform: scale(1) translate(0, 0); }
+}
+
+/* Positionnement des popups à droite */
+.leaflet-popup {
+    margin-left: 10px;
+}
+
+.leaflet-popup-tip-container {
+    left: -10px;
+}
