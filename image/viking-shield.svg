@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bouclier viking -->
+  <path d="M30 5 L55 15 L55 30 C55 45 45 55 30 55 C15 55 5 45 5 30 L5 15 Z" stroke="#8B4513" fill="#CD853F" stroke-width="3"/>
+  
+  <!-- Détails du bouclier -->
+  <circle cx="30" cy="30" r="15" stroke="#8B4513" fill="none" stroke-width="2"/>
+  <path d="M30 10 L30 50 M10 30 L50 30" stroke="#8B4513" stroke-width="2" fill="none"/>
+  
+  <!-- Rivets décoratifs -->
+  <circle cx="15" cy="15" r="2" fill="#2C1B0E"/>
+  <circle cx="45" cy="15" r="2" fill="#2C1B0E"/>
+  <circle cx="15" cy="45" r="2" fill="#2C1B0E"/>
+  <circle cx="45" cy="45" r="2" fill="#2C1B0E"/>
+</svg>

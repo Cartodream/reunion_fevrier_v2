@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Trèfle irlandais (shamrock) -->
+  <g fill="#169B62">
+    <!-- Feuilles -->
+    <path d="M30,10 C35,5 45,5 45,15 C45,25 35,25 30,20 L30,10 Z" />
+    <path d="M30,10 C25,5 15,5 15,15 C15,25 25,25 30,20 L30,10 Z" />
+    <path d="M30,10 C30,5 40,0 40,10 C40,20 30,15 30,10 Z" />
+    
+    <!-- Tige -->
+    <path d="M30,20 L30,50" stroke="#169B62" stroke-width="2" fill="none"/>
+  </g>
+</svg>

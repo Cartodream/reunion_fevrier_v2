@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Motif de fond viking -->
+  <defs>
+    <pattern id="vikingPattern" patternUnits="userSpaceOnUse" width="100" height="100">
+      <!-- Lignes croisées -->
+      <path d="M0,0 L100,100 M100,0 L0,100" stroke="#D2B48C" stroke-width="1" fill="none" opacity="0.1"/>
+      
+      <!-- Motif de nœud viking simplifié -->
+      <path d="M30,10 L50,30 L30,50 L10,30 Z" stroke="#8B4513" fill="none" stroke-width="2" opacity="0.2"/>
+      
+      <!-- Petits points décoratifs -->
+      <circle cx="10" cy="10" r="2" fill="#8B4513" opacity="0.2"/>
+      <circle cx="90" cy="10" r="2" fill="#8B4513" opacity="0.2"/>
+      <circle cx="10" cy="90" r="2" fill="#8B4513" opacity="0.2"/>
+      <circle cx="90" cy="90" r="2" fill="#8B4513" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <!-- Rectangle de fond avec le motif -->
+  <rect width="100" height="100" fill="url(#vikingPattern)"/>
+</svg>
